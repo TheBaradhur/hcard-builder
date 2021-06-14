@@ -11,7 +11,7 @@ I'm using the following elements to achieve different purpose:
 - `Tailwind` is used for CSS
 
 ## Required Improvements
-- The CSS needs to be finished to match exactly the design
+- The CSS needs to be finished to match exactly the design, especially the responsive side of things
 - I planned to add some unit tests to test each component but couldn't get to it 
 - The state doesn't work well when you switch to the about page, that needs fixing
 - Adding more validation on each fields

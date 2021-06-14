@@ -2,7 +2,7 @@
   <div class="mb-auto mt-auto align-middle px-8 pt-6 pb-8 mb-4">
     <h1>HCard Preview</h1>
     <div class="bg-white shadow-md rounded">
-      <div class="text-left left-bottom bg-gray-700 h-24 grid grid-cols-2">
+      <div class="text-left left-bottom bg-gray-700 h-24 grid grid-cols-12">
         <h2
           class="
             text-4xl text-white
@@ -11,11 +11,12 @@
             align-text-bottom
             mt-10
             ml-8
+            col-span-8
           "
         >
           {{ fullName }}
         </h2>
-        <div class="avatar">
+        <div class="avatar col-end-11">
           <img v-show="hcardInfo.avatar" :src="hcardInfo.avatar" alt="avatar" />
         </div>
       </div>
@@ -41,10 +42,14 @@
           </div>
 
           <div class="preview-field grid grid-cols-2">
-            <dt>Postcode</dt>
-            <dd>{{ hcardInfo.postcode }}</dd>
-            <dt class="ml-6">Country</dt>
-            <dd class="capitalize">{{ hcardInfo.country }}</dd>
+            <div class="flex">
+              <dt>Postcode</dt>
+              <dd>{{ hcardInfo.postcode }}</dd>
+            </div>
+            <div class="flex col-start-2">
+              <dt class="ml-6">Country</dt>
+              <dd class="capitalize">{{ hcardInfo.country }}</dd>
+            </div>
           </div>
         </dl>
       </div>
@@ -118,7 +123,7 @@ dd {
   @apply mr-6 mt-6 capitalize;
 }
 .avatar {
-  @apply border-2 border-white mt-3 mr-2 object-right float-right;
+  @apply border-2 border-white mt-3 mr-20 object-right float-right;
   width: 95px;
   height: 110px;
   background: #f2f2f2;
