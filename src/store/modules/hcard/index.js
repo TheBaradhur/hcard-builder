@@ -10,7 +10,7 @@ const state = {
     state: "",
     postcode: "",
     country: "",
-    avatarUrl: "",
+    avatar: "",
   },
 };
 
@@ -22,11 +22,6 @@ const actions = {
   setHcardInfo({ commit }, hcard) {
     // Backend call to update data
     commit("UPDATE_HCARD_INFO", hcard);
-  },
-  setHcardAvatarUrl({ commit }, url) {
-    // Backend call to update data
-    state.hcardInfo.avatarUrl = url;
-    commit("UPDATE_HCARD_INFO", state.hcardInfo);
   },
 };
 
@@ -46,7 +41,7 @@ const mutations = {
     state.hcardInfo.state = hcardUpdate.state;
     state.hcardInfo.postcode = hcardUpdate.postcode;
     state.hcardInfo.country = hcardUpdate.country;
-    state.hcardInfo.avatarUrl = hcardUpdate.avatarUrl;
+    state.hcardInfo.avatar = hcardUpdate.avatar;
   },
 };
 

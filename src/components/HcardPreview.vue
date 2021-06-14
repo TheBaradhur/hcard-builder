@@ -4,11 +4,7 @@
     <div class="hcard">
       <div class="hcard-header">
         <div class="photo">
-          <img
-            v-show="hcardInfo.avatarUrl"
-            :src="hcardInfo.avatarUrl"
-            alt="avatar"
-          />
+          <img v-show="hcardInfo.avatar" :src="hcardInfo.avatar" alt="avatar" />
         </div>
         <h2>{{ fullName }}</h2>
       </div>
@@ -17,7 +13,7 @@
           <dt>Email</dt>
           <dd>{{ hcardInfo.email }}</dd>
           <dt>Phone</dt>
-          <dd >{{ hcardInfo.phone }}</dd>
+          <dd>{{ hcardInfo.phone }}</dd>
           <dt>Address</dt>
           <dd>{{ addressLine1 }}</dd>
           <dd>{{ addressLine2 }}</dd>
@@ -25,8 +21,6 @@
           <dd>{{ hcardInfo.postcode }}</dd>
           <dt>Country</dt>
           <dd>{{ hcardInfo.country }}</dd>
-          <dt>Avatar</dt>
-          <dd>{{ hcardInfo.avatarUrl }}</dd>
         </dl>
       </div>
     </div>

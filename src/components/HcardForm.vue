@@ -159,7 +159,7 @@
             ref="fileInput"
             accept="image/*"
             id="avatar"
-            @change="readFile"
+            @change="getAvatarFile"
           />
           <button type="button" @click.prevent="uploadAvatar">
             Upload Avatar
@@ -195,24 +195,25 @@ export default {
         state: "",
         postcode: "",
         country: "",
-        avatarUrl: "",
+        avatar: "",
       },
     };
   },
   methods: {
-    ...mapActions(["getHcardInfo", "setHcardInfo", "setHcardAvatarUrl"]),
+    ...mapActions(["getHcardInfo", "setHcardInfo"]),
     updateHcardInfo() {
       this.setHcardInfo(this.hcard);
     },
-    readFile(e) {
+    getAvatarFile(e) {
       if (window.FileReader) {
         var input = e.target;
 
         if (input.files && input.files[0]) {
           var reader = new FileReader();
           var self = this;
-          reader.onload = function (e) {
-            self.setHcardAvatarUrl(e.target.result);
+          reader.onload = (e) => {
+            self.hcard.avatar = e.target.result;
+            self.setHcardInfo(self.hcard);
           };
 
           reader.readAsDataURL(input.files[0]);
