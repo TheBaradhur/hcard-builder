@@ -2,20 +2,30 @@
   <div class="mb-auto mt-auto align-middle px-8 pt-6 pb-8 mb-4">
     <h1>HCard Preview</h1>
     <div class="bg-white shadow-md rounded">
-      <div class="text-left left-bottom bg-gray-800 h-24">
+      <div
+        class="
+          text-left
+          left-bottom
+          bg-gray-800
+          h-24
+          justify-around
+          flex
+          items-start
+        "
+      >
         <h2
           class="
-            text-3xl
-            pl-8
-            text-white
+            text-3xl text-white
             capitalize
             font-medium
             align-text-bottom
+            mt-10
+            justify-begin
           "
         >
           {{ fullName }}
         </h2>
-        <div class="">
+        <div class="avatar">
           <img v-show="hcardInfo.avatar" :src="hcardInfo.avatar" alt="avatar" />
         </div>
       </div>
@@ -36,6 +46,7 @@
           </div>
 
           <div class="preview-field">
+            <dt class="text-black text-opacity-0">Address</dt>
             <dd class="capitalize">{{ addressLine2 }}</dd>
           </div>
 
@@ -62,14 +73,24 @@ export default {
         return "";
       }
 
-      return this.hcardInfo.givenName + " " + this.hcardInfo.surname;
+      let fullName = this.hcardInfo.givenName;
+      if (this.hcardInfo.surname) {
+        fullName = fullName + " " + this.hcardInfo.surname;
+      }
+
+      return fullName;
     },
     addressLine1: function () {
       if (!this.hcardInfo.streetNumber && !this.hcardInfo.streetName) {
         return "";
       }
 
-      return this.hcardInfo.streetNumber + " " + this.hcardInfo.streetName;
+      let addressLine1 = this.hcardInfo.streetNumber;
+      if (this.hcardInfo.streetName) {
+        addressLine1 = addressLine1 + " " + this.hcardInfo.streetName;
+      }
+
+      return addressLine1;
     },
     addressLine2: function () {
       if (!this.hcardInfo.suburb && !this.hcardInfo.state) {
@@ -90,11 +111,9 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  text-align: right;
-  text-transform: uppercase;
+  @apply uppercase text-right;
   margin-bottom: 0.5rem;
   color: #aeaeae;
 }
@@ -107,5 +126,11 @@ dt {
 }
 dd {
   @apply mr-6 mt-6 capitalize;
+}
+.avatar {
+  @apply border-2 border-white mt-3 mr-10 justify-end;
+  width: 82px;
+  height: 110px;
+  background: #f2f2f2;
 }
 </style>

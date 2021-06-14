@@ -173,7 +173,7 @@
             Upload Avatar
           </button>
         </div>
-        <div>
+        <div class="ml-8">
           <button type="button" class="bg-blue-400 hover:bg-gray-700">
             Create hCard
           </button>
@@ -260,6 +260,6 @@ input {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
 }
 label {
- @apply block text-gray-500 text-sm font-bold mb-2 uppercase text-left;
+  @apply block text-gray-500 text-sm font-bold mb-2 uppercase text-left;
 }
 </style>
