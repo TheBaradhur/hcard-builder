@@ -4,8 +4,8 @@ const state = {
     surname: "",
     email: "",
     phone: "",
-    houseName: "",
-    street: "",
+    streetNumber: "",
+    streetName: "",
     suburb: "",
     state: "",
     postcode: "",
@@ -18,8 +18,8 @@ const actions = {
   getHcardInfo({ commit }) {
     // Backend call to get existing data
     commit("UPDATE_HCARD_INFO", {
-      givenName: "test",
-      surname: "bis",
+      givenName: "",
+      surname: "",
     });
   },
   setHcardInfo({ commit }, hcardInfo) {
