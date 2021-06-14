@@ -8,7 +8,7 @@
     >
       <h2 class="section">Personal Details</h2>
 
-      <div class="mb-4">
+      <div class="fields-row">
         <div class="field w-1/2">
           <label
             >Given Name
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="mb-4">
+      <div class="fields-row">
         <div class="field">
           <label
             >Email
@@ -69,7 +69,7 @@
       </div>
 
       <h2 class="section">Address</h2>
-      <div class="mb-4">
+      <div class="fields-row">
         <div class="field">
           <label
             >House Name or #
@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="fields-row">
         <div class="field">
           <label
             >Suburb
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div class="mb-4">
+      <div class="fields-row">
         <div class="field">
           <label
             >Postcode
@@ -155,8 +155,8 @@
         </div>
       </div>
 
-      <div class="mb-2 mt-10 flex">
-        <div>
+      <div class="mt-10 fields-row">
+        <div class="field">
           <input
             type="file"
             style="display: none"
@@ -173,7 +173,7 @@
             Upload Avatar
           </button>
         </div>
-        <div class="ml-8">
+        <div class="field">
           <button type="button" class="bg-blue-400 hover:bg-gray-700">
             Create hCard
           </button>
@@ -250,11 +250,13 @@ input:invalid {
   border-bottom: 1px solid #aeaeae;
 }
 button {
-  width: 180px;
-  @apply text-white font-bold py-2 px-4 rounded;
+  @apply text-white font-bold py-2 px-4 rounded w-full;
 }
 .field {
-  @apply w-1/2;
+  @apply w-11/12;
+}
+.fields-row {
+  @apply mb-4 grid grid-cols-2;
 }
 input {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
