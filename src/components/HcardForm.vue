@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <h1>hCard Builder</h1>
-    <form action="#" onsubmit="alert('Created!'); return false;">
+  <div class="w-full">
+    <h1 class="text-3xl gray-700 font-bold text-left pl-8">hCard Builder</h1>
+    <form
+      action="#"
+      class="rounded px-8 pt-6 pb-8 mb-4"
+      onsubmit="alert('Created!'); return false;"
+    >
       <h2 class="section">Personal Details</h2>
 
-      <div>
-        <div>
+      <div class="mb-4">
+        <div class="field w-1/2">
           <label
             >Given Name
             <input
@@ -18,7 +22,7 @@
             />
           </label>
         </div>
-        <div>
+        <div class="field w-1/2">
           <label
             >Surname
             <input
@@ -33,8 +37,8 @@
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="mb-4">
+        <div class="field">
           <label
             >Email
             <input
@@ -47,7 +51,7 @@
             />
           </label>
         </div>
-        <div>
+        <div class="field">
           <label
             >Phone
             <input
@@ -65,8 +69,8 @@
       </div>
 
       <h2 class="section">Address</h2>
-      <div>
-        <div>
+      <div class="mb-4">
+        <div class="field">
           <label
             >House Name or #
             <input
@@ -79,7 +83,7 @@
             />
           </label>
         </div>
-        <div>
+        <div class="field">
           <label
             >Street
             <input
@@ -95,7 +99,7 @@
       </div>
 
       <div>
-        <div>
+        <div class="field">
           <label
             >Suburb
             <input
@@ -108,7 +112,7 @@
             />
           </label>
         </div>
-        <div>
+        <div class="field">
           <label
             >State
             <input
@@ -123,8 +127,8 @@
         </div>
       </div>
 
-      <div>
-        <div>
+      <div class="mb-4">
+        <div class="field">
           <label
             >Postcode
             <input
@@ -137,7 +141,7 @@
             />
           </label>
         </div>
-        <div>
+        <div class="field">
           <label
             >Country
             <input
@@ -151,7 +155,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="mb-2 mt-10 flex">
         <div>
           <input
             type="file"
@@ -161,12 +165,18 @@
             id="avatar"
             @change="getAvatarFile"
           />
-          <button type="button" @click.prevent="uploadAvatar">
+          <button
+            type="button"
+            class="bg-gray-400 hover:bg-gray-700"
+            @click.prevent="uploadAvatar"
+          >
             Upload Avatar
           </button>
         </div>
         <div>
-          <button type="submit">Create hCard</button>
+          <button type="button" class="bg-blue-400 hover:bg-gray-700">
+            Create hCard
+          </button>
         </div>
       </div>
     </form>
@@ -230,20 +240,26 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+input:invalid {
+  border: 1px solid #ff2520;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.section {
+  @apply text-xs text-left uppercase mb-5;
+  color: #aeaeae;
+  border-bottom: 1px solid #aeaeae;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+button {
+  width: 180px;
+  @apply text-white font-bold py-2 px-4 rounded;
 }
-a {
-  color: #42b983;
+.field {
+  @apply w-1/2;
+}
+input {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
+}
+label {
+ @apply block text-gray-500 text-sm font-bold mb-2 uppercase text-left;
 }
 </style>

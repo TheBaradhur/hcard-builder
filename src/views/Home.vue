@@ -1,7 +1,11 @@
 <template>
-  <div class="home">
-    <HcardForm />
-    <HcardPreview />
+  <div class="flex">
+    <div class="flex-initial container h-screen">
+      <HcardForm />
+    </div>
+    <div class="flex-initial container bg-gray-200 h-screen">
+      <HcardPreview />
+    </div>
   </div>
 </template>
 

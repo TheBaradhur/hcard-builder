@@ -1,26 +1,50 @@
 <template>
-  <div class="hcard-preview">
+  <div class="mb-auto mt-auto align-middle px-8 pt-6 pb-8 mb-4">
     <h1>HCard Preview</h1>
-    <div class="hcard">
-      <div class="hcard-header">
-        <div class="photo">
+    <div class="bg-white shadow-md rounded">
+      <div class="text-left left-bottom bg-gray-800 h-24">
+        <h2
+          class="
+            text-3xl
+            pl-8
+            text-white
+            capitalize
+            font-medium
+            align-text-bottom
+          "
+        >
+          {{ fullName }}
+        </h2>
+        <div class="">
           <img v-show="hcardInfo.avatar" :src="hcardInfo.avatar" alt="avatar" />
         </div>
-        <h2>{{ fullName }}</h2>
       </div>
-      <div class="hcard-body">
+      <div class="text-left bd-bottom-2 p-8">
         <dl>
-          <dt>Email</dt>
-          <dd>{{ hcardInfo.email }}</dd>
-          <dt>Phone</dt>
-          <dd>{{ hcardInfo.phone }}</dd>
-          <dt>Address</dt>
-          <dd>{{ addressLine1 }}</dd>
-          <dd>{{ addressLine2 }}</dd>
-          <dt>Postcode</dt>
-          <dd>{{ hcardInfo.postcode }}</dd>
-          <dt>Country</dt>
-          <dd>{{ hcardInfo.country }}</dd>
+          <div class="preview-field">
+            <dt>Email</dt>
+            <dd>{{ hcardInfo.email }}</dd>
+          </div>
+          <div class="preview-field">
+            <dt>Phone</dt>
+            <dd>{{ hcardInfo.phone }}</dd>
+          </div>
+
+          <div class="preview-field">
+            <dt>Address</dt>
+            <dd class="capitalize">{{ addressLine1 }}</dd>
+          </div>
+
+          <div class="preview-field">
+            <dd class="capitalize">{{ addressLine2 }}</dd>
+          </div>
+
+          <div class="preview-field">
+            <dt>Postcode</dt>
+            <dd>{{ hcardInfo.postcode }}</dd>
+            <dt class="ml-6">Country</dt>
+            <dd class="capitalize">{{ hcardInfo.country }}</dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -40,14 +64,14 @@ export default {
 
       return this.hcardInfo.givenName + " " + this.hcardInfo.surname;
     },
-    addressLine1() {
+    addressLine1: function () {
       if (!this.hcardInfo.streetNumber && !this.hcardInfo.streetName) {
         return "";
       }
 
       return this.hcardInfo.streetNumber + " " + this.hcardInfo.streetName;
     },
-    addressLine2() {
+    addressLine2: function () {
       if (!this.hcardInfo.suburb && !this.hcardInfo.state) {
         return "";
       }
@@ -68,18 +92,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  text-align: right;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #aeaeae;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.preview-field {
+  @apply flex;
+  border-bottom: 1px solid #aeaeae;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+dt {
+  @apply mr-6 mt-6 uppercase font-semibold;
 }
-a {
-  color: #42b983;
+dd {
+  @apply mr-6 mt-6 capitalize;
 }
 </style>

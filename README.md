@@ -9,6 +9,7 @@ I'm using the following elements to achieve different purpose:
 - `Vuex` to handle the state of the hcard info
 - `Jest` for unit testing
 - `Eslint/prettier` to have consistant coding rules
+- `Tailwing` is used for CSS
 
 ## What's next?
 
