@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="form-width">
     <h1 class="text-3xl gray-700 font-bold text-left pl-8">hCard Builder</h1>
     <form
       action="#"
@@ -256,12 +256,16 @@ button {
   @apply w-11/12;
 }
 .fields-row {
-  @apply mb-4 grid grid-cols-2;
+  @apply mb-4 grid md:grid-cols-2 sm:grid-cols-1;
 }
 input {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
 }
 label {
   @apply block text-gray-500 text-sm font-medium mb-2 uppercase text-left;
+}
+.form-width {
+  @apply w-full;
+  min-width: 500px;
 }
 </style>

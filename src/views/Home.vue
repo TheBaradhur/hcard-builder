@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex grid md:grid-cols-2 sm:grid-cols-1">
     <div class="flex-initial container h-screen">
       <HcardForm />
     </div>
