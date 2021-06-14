@@ -15,16 +15,18 @@ const state = {
 };
 
 const actions = {
-  getHcardInfo({ commit }) {
+  getHcardInfo() {
     // Backend call to get existing data
-    commit("UPDATE_HCARD_INFO", {
-      givenName: "",
-      surname: "",
-    });
+    return state.hcardInfo;
   },
-  setHcardInfo({ commit }, hcardInfo) {
+  setHcardInfo({ commit }, hcard) {
     // Backend call to update data
-    commit("UPDATE_HCARD_INFO", hcardInfo);
+    commit("UPDATE_HCARD_INFO", hcard);
+  },
+  setHcardAvatarUrl({ commit }, url) {
+    // Backend call to update data
+    state.hcardInfo.avatarUrl = url;
+    commit("UPDATE_HCARD_INFO", state.hcardInfo);
   },
 };
 
@@ -33,8 +35,18 @@ const getters = {
 };
 
 const mutations = {
-  UPDATE_HCARD_INFO(state, payload) {
-    state.hcardInfo = payload;
+  UPDATE_HCARD_INFO(state, hcardUpdate) {
+    state.hcardInfo.givenName = hcardUpdate.givenName;
+    state.hcardInfo.surname = hcardUpdate.surname;
+    state.hcardInfo.email = hcardUpdate.email;
+    state.hcardInfo.phone = hcardUpdate.phone;
+    state.hcardInfo.streetNumber = hcardUpdate.streetNumber;
+    state.hcardInfo.streetName = hcardUpdate.streetName;
+    state.hcardInfo.suburb = hcardUpdate.suburb;
+    state.hcardInfo.state = hcardUpdate.state;
+    state.hcardInfo.postcode = hcardUpdate.postcode;
+    state.hcardInfo.country = hcardUpdate.country;
+    state.hcardInfo.avatarUrl = hcardUpdate.avatarUrl;
   },
 };
 

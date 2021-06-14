@@ -12,8 +12,9 @@
               type="text"
               name="givenName"
               id="given-name"
-              v-model="hcardInfo.givenName"
+              v-model="hcard.givenName"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -24,8 +25,9 @@
               type="text"
               name="surname"
               id="surname"
-              v-model="hcardInfo.surname"
+              v-model="hcard.surname"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -39,8 +41,9 @@
               type="email"
               name="email"
               id="email"
-              v-model="hcardInfo.email"
+              v-model="hcard.email"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -53,8 +56,9 @@
               title="Please enter a valid Australian phone number"
               name="phone"
               id="phone"
-              v-model="hcardInfo.phone"
+              v-model="hcard.phone"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -69,8 +73,9 @@
               type="text"
               name="streetNumber"
               id="street-number"
-              v-model="hcardInfo.streetNumber"
+              v-model="hcard.streetNumber"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -81,8 +86,9 @@
               type="text"
               name="streetName"
               id="street-name"
-              v-model="hcardInfo.streetName"
+              v-model="hcard.streetName"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -96,8 +102,9 @@
               type="text"
               name="suburb"
               id="suburb"
-              v-model="hcardInfo.suburb"
+              v-model="hcard.suburb"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -108,8 +115,9 @@
               type="tel"
               name="state"
               id="state"
-              v-model="hcardInfo.state"
+              v-model="hcard.state"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -123,8 +131,9 @@
               type="text"
               name="postcode"
               id="postcode"
-              v-model="hcardInfo.postcode"
+              v-model="hcard.postcode"
               @change="updateHcardInfo"
+              @keyup="updateHcardInfo"
             />
           </label>
         </div>
@@ -135,7 +144,7 @@
               type="text"
               name="country"
               id="country"
-              v-model="hcardInfo.country"
+              v-model="hcard.country"
               @change="updateHcardInfo"
             />
           </label>
@@ -150,8 +159,11 @@
             ref="fileInput"
             accept="image/*"
             id="avatar"
+            @change="readFile"
           />
-          <button type="button">Upload Avatar</button>
+          <button type="button" @click.prevent="uploadAvatar">
+            Upload Avatar
+          </button>
         </div>
         <div>
           <button type="submit">Create hCard</button>
@@ -170,14 +182,49 @@ export default {
   computed: {
     ...mapGetters(["hcardInfo"]),
   },
+  data() {
+    return {
+      hcard: {
+        givenName: "",
+        surname: "",
+        email: "",
+        phone: "",
+        streetNumber: "",
+        streetName: "",
+        suburb: "",
+        state: "",
+        postcode: "",
+        country: "",
+        avatarUrl: "",
+      },
+    };
+  },
   methods: {
-    ...mapActions(["getHcardInfo", "setHcardInfo"]),
+    ...mapActions(["getHcardInfo", "setHcardInfo", "setHcardAvatarUrl"]),
     updateHcardInfo() {
-      this.setHcardInfo(this.hcardInfo);
+      this.setHcardInfo(this.hcard);
+    },
+    readFile(e) {
+      if (window.FileReader) {
+        var input = e.target;
+
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          var self = this;
+          reader.onload = function (e) {
+            self.setHcardAvatarUrl(e.target.result);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    },
+    uploadAvatar() {
+      this.$refs.fileInput.click();
     },
   },
   created() {
-    this.hcardInfo = this.getHcardInfo();
+    this.hcard = this.getHcardInfo();
   },
 };
 </script>

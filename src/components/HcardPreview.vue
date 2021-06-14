@@ -6,7 +6,7 @@
         <div class="photo">
           <img
             v-show="hcardInfo.avatarUrl"
-            v-bind:src="hcardInfo.avatarUrl"
+            :src="hcardInfo.avatarUrl"
             alt="avatar"
           />
         </div>
@@ -17,7 +17,7 @@
           <dt>Email</dt>
           <dd>{{ hcardInfo.email }}</dd>
           <dt>Phone</dt>
-          <dd>{{ hcardInfo.phone }}</dd>
+          <dd >{{ hcardInfo.phone }}</dd>
           <dt>Address</dt>
           <dd>{{ addressLine1 }}</dd>
           <dd>{{ addressLine2 }}</dd>
@@ -25,6 +25,8 @@
           <dd>{{ hcardInfo.postcode }}</dd>
           <dt>Country</dt>
           <dd>{{ hcardInfo.country }}</dd>
+          <dt>Avatar</dt>
+          <dd>{{ hcardInfo.avatarUrl }}</dd>
         </dl>
       </div>
     </div>
