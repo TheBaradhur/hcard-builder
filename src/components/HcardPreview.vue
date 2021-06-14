@@ -2,25 +2,15 @@
   <div class="mb-auto mt-auto align-middle px-8 pt-6 pb-8 mb-4">
     <h1>HCard Preview</h1>
     <div class="bg-white shadow-md rounded">
-      <div
-        class="
-          text-left
-          left-bottom
-          bg-gray-800
-          h-24
-          justify-around
-          flex
-          items-start
-        "
-      >
+      <div class="text-left left-bottom bg-gray-700 h-24 grid grid-cols-2">
         <h2
           class="
-            text-3xl text-white
+            text-4xl text-white
             capitalize
             font-medium
             align-text-bottom
             mt-10
-            justify-begin
+            ml-8
           "
         >
           {{ fullName }}
@@ -29,7 +19,7 @@
           <img v-show="hcardInfo.avatar" :src="hcardInfo.avatar" alt="avatar" />
         </div>
       </div>
-      <div class="text-left bd-bottom-2 p-8">
+      <div class="text-left bd-bottom-2 pb-8 pr-8 pl-8 pt-2">
         <dl>
           <div class="preview-field">
             <dt>Email</dt>
@@ -50,7 +40,7 @@
             <dd class="capitalize">{{ addressLine2 }}</dd>
           </div>
 
-          <div class="preview-field">
+          <div class="preview-field grid grid-cols-2">
             <dt>Postcode</dt>
             <dd>{{ hcardInfo.postcode }}</dd>
             <dt class="ml-6">Country</dt>
@@ -128,8 +118,8 @@ dd {
   @apply mr-6 mt-6 capitalize;
 }
 .avatar {
-  @apply border-2 border-white mt-3 mr-10 justify-end;
-  width: 82px;
+  @apply border-2 border-white mt-3 mr-2 object-right float-right;
+  width: 95px;
   height: 110px;
   background: #f2f2f2;
 }

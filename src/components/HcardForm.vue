@@ -155,7 +155,7 @@
         </div>
       </div>
 
-      <div class="mt-10 fields-row">
+      <div class="mt-8 fields-row">
         <div class="field">
           <input
             type="file"
@@ -245,12 +245,12 @@ input:invalid {
   border: 1px solid #ff2520;
 }
 .section {
-  @apply text-xs text-left uppercase mb-5;
+  @apply text-xs text-left uppercase mb-8 w-full;
   color: #aeaeae;
   border-bottom: 1px solid #aeaeae;
 }
 button {
-  @apply text-white font-bold py-2 px-4 rounded w-full;
+  @apply text-white font-bold h-12 py-2 px-4 rounded w-full text-2xl;
 }
 .field {
   @apply w-11/12;
@@ -262,6 +262,6 @@ input {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
 }
 label {
-  @apply block text-gray-500 text-sm font-bold mb-2 uppercase text-left;
+  @apply block text-gray-500 text-sm font-medium mb-2 uppercase text-left;
 }
 </style>
