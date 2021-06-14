@@ -1,21 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
+  <div class="hcard-preview">
+    <h1>HCard Preview</h1>
+    <div class="hcard">
+      <div class="card-header">
+        <h2>{{ fullName }}</h2>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "HelloWorld",
-  props: {
-    msg: String,
+  name: "HcardPreview",
+  computed: {
+    ...mapGetters(["hcardInfo"]),
+    fullName() {
+      return this.hcardInfo.givenName + " " + this.hcardInfo.surname;
+    },
   },
 };
 </script>

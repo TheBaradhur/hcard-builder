@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
+import hcard from "./modules/hcard";
 
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: {
+    hcard,
+  },
 });
